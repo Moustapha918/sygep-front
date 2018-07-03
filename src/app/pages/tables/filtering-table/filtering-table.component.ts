@@ -21,7 +21,7 @@ const BREADCRUMBS: any[] = [
     link: '#'
   },
   {
-    title: 'Filtering table',
+    title: 'Nos clients',
     link: ''
   }
 ];
@@ -70,7 +70,7 @@ const NAMES: string[] = [
   styleUrls: ['./filtering-table.component.scss']
 })
 export class PageFilteringTableComponent implements OnInit {
-  pageTitle: string = 'Filtering table';
+  pageTitle: string = 'Nos clients';
   breadcrumb: any[] = BREADCRUMBS;
   displayedColumns = ['userId', 'userName', 'progress', 'color'];
   exampleDatabase = new ExampleDatabase();

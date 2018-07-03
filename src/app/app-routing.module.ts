@@ -154,7 +154,7 @@ const extraRoutes: Routes = [
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/default-layout/dashboard',
+    redirectTo: '/extra-layout/sign-in',
     pathMatch: 'full'
   },
   {

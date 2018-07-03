@@ -16,8 +16,9 @@ import { DefaultCLayoutComponent }          from './layouts/default-c/default-c.
 import { BoxedCLayoutComponent }            from './layouts/boxed-c/boxed-c.component';
 import { ExtraLayoutComponent }             from './layouts/extra/extra.component';
 import {TokenStorageService} from "./services/token-storage.service";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
   declarations : [
@@ -38,9 +39,12 @@ import {InterceptorService} from "./services/interceptor.service";
     AppRoutingModule,
     UIModule,
     NiComponentsModule,
-    PagesModule
+    PagesModule,
+    HttpClientModule
   ],
-  providers : [TokenStorageService, {
+  providers : [TokenStorageService,HttpClient,
+    AuthService,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
     multi: true

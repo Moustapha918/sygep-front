@@ -2,10 +2,8 @@ import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {TokenStorageService} from "./token-storage.service";
 import {Observable} from "rxjs/Observable";
-import {
-  HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpHeaderResponse, HttpProgressEvent,
-  HttpResponse, HttpUserEvent, HttpErrorResponse, HttpEvent
-} from '@angular/common/http';
+import {HttpInterceptor, HttpRequest, HttpHandler, HttpSentEvent, HttpHeaderResponse, HttpProgressEvent,
+  HttpResponse, HttpUserEvent, HttpErrorResponse} from '@angular/common/http';
 import 'rxjs/add/operator/do';
 
 
@@ -18,7 +16,8 @@ export class InterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
-    Observable <HttpEvent<any>> {
+    Observable<HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
+    console.log('-----------------interceptor')
     let authReq = req;
     if (this.token.getToken() != null) {
       authReq = req.clone({headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token.getToken())});
@@ -26,14 +25,13 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(authReq)
   .do(
       (err: any) => {
+
         if (err instanceof HttpErrorResponse) {
 
-          if (err.status === 401) {
+          if (err.status !== 200) {
             this.router.navigate(['user']);
           }
         }
       });
   }
-
-
 }

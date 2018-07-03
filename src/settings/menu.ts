@@ -1,6 +1,6 @@
 export const MENU: any = [
   {
-    title: 'Dashboards',
+    title: 'Tableau de bord',
     icon: {
       class: 'fa fa-home',
       bg: '#ea8080',
@@ -9,7 +9,7 @@ export const MENU: any = [
     routing: '/default-layout/dashboard',
   },
   {
-    title: 'Simple table',
+    title: 'Liste de client',
     routing: '/default-layout/filtering-table',
     icon: {
       class: 'fa fa-table',

@@ -1,5 +1,4 @@
-<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
-
+<!--<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>-->
 <div class="example-header">
   <mat-form-field>
     <input matInput #filter placeholder="Filter users">
@@ -19,13 +18,13 @@
 
   <!-- Progress Column -->
   <ng-container matColumnDef="progress">
-    <mat-header-cell *matHeaderCellDef> Progress </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> solde </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="userName">
-    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
     <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
   </ng-container>
 
