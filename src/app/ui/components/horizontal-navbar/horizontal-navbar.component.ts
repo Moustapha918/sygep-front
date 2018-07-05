@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {ClientService} from "../../../services/client.service";
 
 @Component({
   moduleId: module.id,
@@ -16,7 +17,7 @@ export class HorizontalNavbarComponent implements OnInit {
   @Output() sidebarState = new EventEmitter();
   showOverlay: boolean;
 
-  constructor() {
+  constructor(private clientService : ClientService) {
     this.openedSidebar = false;
     this.showOverlay = false;
   }
@@ -34,6 +35,7 @@ export class HorizontalNavbarComponent implements OnInit {
     }
     clickedComponent.classList.add('opened');
 
+    //Add class 'show-overlay'
     //Add class 'show-overlay'
     this.showOverlay = true;
   }
@@ -55,5 +57,13 @@ export class HorizontalNavbarComponent implements OnInit {
   openSidebar() {
     this.openedSidebar = !this.openedSidebar;
     this.sidebarState.emit();
+  }
+  addUser(){
+    console.log(this.clientService)
+    this.clientService.addUser().subscribe(
+      (data) => {
+        console.log(data)
+      }
+    );
   }
 }

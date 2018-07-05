@@ -19,6 +19,7 @@ import {TokenStorageService} from "./services/token-storage.service";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {InterceptorService} from "./services/interceptor.service";
 import {AuthService} from "./services/auth.service";
+import {ClientService} from "./services/client.service";
 
 @NgModule({
   declarations : [
@@ -44,6 +45,7 @@ import {AuthService} from "./services/auth.service";
   ],
   providers : [TokenStorageService,HttpClient,
     AuthService,
+    ClientService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,

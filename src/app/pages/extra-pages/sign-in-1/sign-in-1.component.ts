@@ -16,7 +16,6 @@ export class PageSignIn1Component implements OnInit {
 
   onSubmit() {
     this.authService.login("admin","admin").subscribe((data)=> {
-      console.log('-----------------'+data.token);
       this.token.saveToken(data.token);
 
     });

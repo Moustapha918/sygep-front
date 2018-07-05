@@ -13,7 +13,7 @@ export class AuthService {
   login(ussername: string, password: string): Observable<any> {
     const credentials = {username: ussername, password: password};
     console.log('attempAuth----------------');
-    let result = this.http.post(environment.backendUrl + "users/signin", credentials) ;
+    let result = this.http.post("users/signin", credentials) ;
     return result;
   }
 
