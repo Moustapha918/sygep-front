@@ -11,7 +11,7 @@ export class ClientService {
 
   }
 
-  addUser() : Observable<boolean>{
+  addUser() : Observable<any>{
     const credentials = {username: "deyd", password: "deyd", email : "kabermoustapha@gmail.com"};
     let result = this.http.post( "users/add", credentials) ;
     return result;

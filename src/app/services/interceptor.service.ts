@@ -24,7 +24,7 @@ export class InterceptorService implements HttpInterceptor {
     if (this.token.getToken() != null && req.url != 'users/signin') {
       authReq = req.clone(
         {
-          headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token.getToken());
+          headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + this.token.getToken()),
           url: environment.backendUrl + req.url
         });
     }else {
