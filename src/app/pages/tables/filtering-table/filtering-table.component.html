@@ -1,4 +1,12 @@
-<!--<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>-->
+<!--
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+-->
+<div  class="row"><div class="col-sm-6">
+      <button ni-button>Nouvequ Client</button>
+
+</div>
+</div>
+
 <div class="example-header">
   <mat-form-field>
     <input matInput #filter placeholder="Filter users">
@@ -18,19 +26,19 @@
 
   <!-- Progress Column -->
   <ng-container matColumnDef="progress">
-    <mat-header-cell *matHeaderCellDef> solde </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="userName">
-    <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Prénom </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.prenom}} </mat-cell>
   </ng-container>
 
   <!-- Color Column -->
   <ng-container matColumnDef="color">
-    <mat-header-cell *matHeaderCellDef> Color </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Télephone </mat-header-cell>
     <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
   </ng-container>
 

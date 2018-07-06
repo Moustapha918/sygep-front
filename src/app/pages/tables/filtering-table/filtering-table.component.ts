@@ -43,25 +43,16 @@ const COLORS: string[] = [
   'gray'
 ];
 const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth'
+  'Moktar',
+  'SIDI',
+  'Mohamed el mami',
+  'BABA AHMED',
+  'TOUHAMi',
+  'SOUMARE',
+  'GAY',
+  'WAD',
+  'ISMAIL',
+  'BELLAL'
 ];
 
 @Component({
@@ -96,9 +87,9 @@ export class PageFilteringTableComponent implements OnInit {
 
 export interface UserData {
   id: string;
-  name: string;
-  progress: string;
-  color: string;
+  nom: string;
+  prenom: string;
+  telephone: string;
 }
 
 export class ExampleDatabase {
@@ -117,15 +108,15 @@ export class ExampleDatabase {
   }
 
   private createNewUser() {
-    const name =
+    const nom =
       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
 
     return {
       id: (this.data.length + 1).toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+      nom: nom,
+      prenom: 'ahmed',
+      telephone : '36 99 09 44'
     };
   }
 }
@@ -147,7 +138,7 @@ export class ExampleDataSource extends DataSource<any> {
 
     return Observable.merge(...displayDataChanges).map(() => {
       return this._exampleDatabase.data.slice().filter((item: UserData) => {
-        let searchStr = (item.name + item.color).toLowerCase();
+        let searchStr = (item.nom + item.prenom).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) != -1;
       });
     });

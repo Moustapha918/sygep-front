@@ -9,7 +9,7 @@ export const MENU: any = [
     routing: '/default-layout/dashboard',
   },
   {
-    title: 'Liste de client',
+    title: 'Liste de clients',
     routing: '/default-layout/filtering-table',
     icon: {
       class: 'fa fa-table',
