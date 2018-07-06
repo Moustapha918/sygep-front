@@ -1,25 +1,27 @@
-<ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
+<ni-card [title]="'Symgep : conecter vous'" [align]="'center'">
   <form (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput placeholder="Username" value="">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Password" value="">
+      <input matInput placeholder="Mot de passe" value="">
     </mat-form-field>
 
     <div class="text-left mb-module">
       <mat-checkbox>
-        Keep me signed in
+        Resté connecté
       </mat-checkbox>
     </div>
 
-    <button ni-button [view]="'accent'" [block]="true">Sign In</button>
+    <button ni-button [view]="'accent'" [block]="true">Se connecter</button>
 
     <div class="additional-info">
-      <a href="extra-layout/sign-up">Sign up</a>
-      <span class="divider"></span>
-      <a href="extra-layout/forgot">Forgot your password?</a>
+      <!--<a href="extra-layout/sign-up">Sign up</a>-->
+      <!--<a href="">C</a>-->
+      <!--<span class="divider"></span>-->
+      <!--<a href="extra-layout/forgot">Mot de passe oublié ?</a>-->
+      <a href="">Mot de passe oublié ? </a>
     </div>
   </form>
 </ni-card>
