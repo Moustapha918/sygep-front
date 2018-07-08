@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {ClientService} from "../../../services/client.service";
+import {TokenStorageService} from "../../../services/token-storage.service";
 
 @Component({
   moduleId: module.id,
@@ -17,7 +18,7 @@ export class HorizontalNavbarComponent implements OnInit {
   @Output() sidebarState = new EventEmitter();
   showOverlay: boolean;
 
-  constructor(private clientService : ClientService) {
+  constructor(private clientService : ClientService, private token : TokenStorageService) {
     this.openedSidebar = false;
     this.showOverlay = false;
   }
@@ -65,5 +66,9 @@ export class HorizontalNavbarComponent implements OnInit {
         console.log(data)
       }
     );
+  }
+
+  logout(){
+    this.token.signOut();
   }
 }

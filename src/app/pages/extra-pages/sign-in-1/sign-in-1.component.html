@@ -1,27 +1,23 @@
-<ni-card [title]="'Symgep : conecter vous'" [align]="'center'">
+<ni-card [title]="'Bienvenue sur Symgep'" [align]="'center'">
   <form (ngSubmit)="onSubmit()">
     <mat-form-field>
-      <input matInput placeholder="Username" value="">
+      <input [(ngModel)]="username" name="username" [(ngModel)]="username" matInput placeholder="Username" value="">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Mot de passe" value="">
+      <input name="password" [(ngModel)]="password" matInput placeholder="mot de pass" value="" type="password">
     </mat-form-field>
 
     <div class="text-left mb-module">
       <mat-checkbox>
-        Resté connecté
+        Garder ma session ouverte
       </mat-checkbox>
     </div>
 
     <button ni-button [view]="'accent'" [block]="true">Se connecter</button>
 
     <div class="additional-info">
-      <!--<a href="extra-layout/sign-up">Sign up</a>-->
-      <!--<a href="">C</a>-->
-      <!--<span class="divider"></span>-->
-      <!--<a href="extra-layout/forgot">Mot de passe oublié ?</a>-->
-      <a href="">Mot de passe oublié ? </a>
+      <a href="extra-layout/forgot">Mot de passe oublié?</a>
     </div>
   </form>
 </ni-card>

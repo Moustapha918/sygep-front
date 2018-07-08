@@ -11,9 +11,7 @@ import { NiComponentsModule }               from './ni-components/ni-components.
 import { PagesModule }                      from './pages/pages.module';
 
 import { DefaultLayoutComponent }           from './layouts/default/default.component';
-import { BoxedLayoutComponent }             from './layouts/boxed/boxed.component';
-import { DefaultCLayoutComponent }          from './layouts/default-c/default-c.component';
-import { BoxedCLayoutComponent }            from './layouts/boxed-c/boxed-c.component';
+
 import { ExtraLayoutComponent }             from './layouts/extra/extra.component';
 import {TokenStorageService} from "./services/token-storage.service";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
@@ -25,9 +23,6 @@ import {ClientService} from "./services/client.service";
   declarations : [
     AppComponent,
     DefaultLayoutComponent,
-    BoxedLayoutComponent,
-    DefaultCLayoutComponent,
-    BoxedCLayoutComponent,
     ExtraLayoutComponent
   ],
   imports: [
@@ -37,10 +32,11 @@ import {ClientService} from "./services/client.service";
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, { useHash: false }),
 
+    PagesModule,
+
     AppRoutingModule,
     UIModule,
     NiComponentsModule,
-    PagesModule,
     HttpClientModule
   ],
   providers : [TokenStorageService,HttpClient,
