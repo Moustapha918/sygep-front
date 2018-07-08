@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl : "https://sygep.herokuapp.com"
+  backendUrl : "https://sygep.herokuapp.com/"
 };
