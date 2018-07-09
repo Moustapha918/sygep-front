@@ -10,6 +10,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/observable/fromEvent';
 
 import { SharedService } from '../../../layouts/shared-service';
+import {ClientService} from "../../../services/client.service";
 
 const BREADCRUMBS: any[] = [
   {
@@ -25,35 +26,13 @@ const BREADCRUMBS: any[] = [
     link: ''
   }
 ];
-const COLORS: string[] = [
-  'maroon',
-  'red',
-  'orange',
-  'yellow',
-  'olive',
-  'green',
-  'purple',
-  'fuchsia',
-  'lime',
-  'teal',
-  'aqua',
-  'blue',
-  'navy',
-  'black',
-  'gray'
-];
-const NAMES: string[] = [
-  'Moktar',
-  'SIDI',
-  'Mohamed el mami',
-  'BABA AHMED',
-  'TOUHAMi',
-  'SOUMARE',
-  'GAY',
-  'WAD',
-  'ISMAIL',
-  'BELLAL'
-];
+
+export interface Client {
+  id: string;
+  nom: string;
+  prenom: string;
+  telephone: string;
+}
 
 @Component({
   selector: 'page-filtering-table',
@@ -64,17 +43,25 @@ export class PageFilteringTableComponent implements OnInit {
   pageTitle: string = 'Nos clients';
   breadcrumb: any[] = BREADCRUMBS;
   displayedColumns = ['userId', 'userName', 'progress', 'color'];
-  exampleDatabase = new ExampleDatabase();
+  //exampleDatabase = new ExampleDatabase();
   dataSource: ExampleDataSource | null;
+  dataChange: BehaviorSubject<Client[]> = new BehaviorSubject<Client[]>([]);
 
   @ViewChild('filter') filter: ElementRef;
 
-  constructor( private _sharedService: SharedService ) {
+  constructor( private _sharedService: SharedService,private clientService: ClientService ) {
     this._sharedService.emitChange(this.pageTitle);
   }
 
   ngOnInit() {
-    this.dataSource = new ExampleDataSource(this.exampleDatabase);
+    this.clientService.getClients().subscribe((data) => {
+      console.log('--------------------------------------get clients')
+      console.log(data)
+      this.dataChange.next(data);
+
+    });
+
+    this.dataSource = new ExampleDataSource(this.dataChange);
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
       .debounceTime(150)
       .distinctUntilChanged()
@@ -85,59 +72,23 @@ export class PageFilteringTableComponent implements OnInit {
   }
 }
 
-export interface UserData {
-  id: string;
-  nom: string;
-  prenom: string;
-  telephone: string;
-}
-
-export class ExampleDatabase {
-  dataChange: BehaviorSubject<UserData[]> = new BehaviorSubject<UserData[]>([]);
-  get data(): UserData[] { return this.dataChange.value; }
-
-  constructor() {
-    // Fill up the database with 100 users.
-    for (let i = 0; i < 100; i++) { this.addUser(); }
-  }
-
-  addUser() {
-    const copiedData = this.data.slice();
-    copiedData.push(this.createNewUser());
-    this.dataChange.next(copiedData);
-  }
-
-  private createNewUser() {
-    const nom =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-    return {
-      id: (this.data.length + 1).toString(),
-      nom: nom,
-      prenom: 'ahmed',
-      telephone : '36 99 09 44'
-    };
-  }
-}
-
 export class ExampleDataSource extends DataSource<any> {
   _filterChange = new BehaviorSubject('');
   get filter(): string { return this._filterChange.value; }
   set filter(filter: string) { this._filterChange.next(filter); }
 
-  constructor(private _exampleDatabase: ExampleDatabase) {
+  constructor(private dataChange: BehaviorSubject<Client[]>) {
     super();
   }
 
-  connect(): Observable<UserData[]> {
+  connect(): Observable<Client[]> {
     const displayDataChanges = [
-      this._exampleDatabase.dataChange,
+      this.dataChange,
       this._filterChange,
     ];
 
     return Observable.merge(...displayDataChanges).map(() => {
-      return this._exampleDatabase.data.slice().filter((item: UserData) => {
+      return this.dataChange.value.slice().filter((item: Client) => {
         let searchStr = (item.nom + item.prenom).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) != -1;
       });
