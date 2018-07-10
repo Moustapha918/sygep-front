@@ -1,29 +1,29 @@
-<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+<!--<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>-->
 
-<ni-card title="Material inputs">
+<ni-card title="Ajouter un client">
   <div class="row">
     <div class="col-md-6">
       <mat-form-field class="md-icon-left">
         <mat-icon matPrefix>perm_identity</mat-icon>
-        <input matInput placeholder="First Name" value="">
+        <input matInput placeholder="Nom" value="">
       </mat-form-field>
     </div>
     <div class="col-md-6">
       <mat-form-field class="md-icon-left">
         <mat-icon matPrefix>people_outline</mat-icon>
-        <input matInput placeholder="Last Name" value="">
+        <input matInput placeholder="Prenom" value="">
       </mat-form-field>
     </div>
   </div>
 
   <mat-form-field>
-    <textarea matInput placeholder="Address"></textarea>
+    <textarea matInput placeholder="Numero de Télephone"></textarea>
   </mat-form-field>
 
   <div class="row">
     <div class="col-md-4">
       <mat-form-field class="mb-0">
-        <input matInput placeholder="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+        <input matInput placeholder="Nationalité" [matAutocomplete]="auto" [formControl]="stateCtrl">
       </mat-form-field>
 
       <mat-autocomplete #auto="matAutocomplete">
@@ -34,7 +34,7 @@
     </div>
     <div class="col-md-4">
       <mat-form-field>
-        <input matInput placeholder="City" value="">
+        <input matInput placeholder="ville de naissance" value="">
       </mat-form-field>
     </div>
     <div class="col-md-4">
@@ -43,12 +43,12 @@
         <mat-hint align="end">{{characterCountHintExample.value.length}} / 5</mat-hint>
       </mat-form-field>
     </div>
+
   </div>
 
-  <mat-form-field class="mb-0">
-    <textarea matInput placeholder="Biography" rows="5"></textarea>
-  </mat-form-field>
+
 </ni-card>
+<!--
 
 <ni-card title="Material checkboxes">
   <div class="mb-4">
@@ -104,3 +104,4 @@
     </mat-chip>
   </mat-chip-list>
 </ni-card>
+-->
