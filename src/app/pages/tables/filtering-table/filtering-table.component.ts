@@ -56,7 +56,6 @@ export class PageFilteringTableComponent implements OnInit {
 
   ngOnInit() {
     this.clientService.getClients().subscribe((data) => {
-      console.log('--------------------------------------get clients')
       console.log(data)
       this.dataChange.next(data);
 
