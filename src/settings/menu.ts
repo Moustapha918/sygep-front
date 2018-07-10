@@ -288,7 +288,7 @@ export const MENU: any = [
     sub: [
       {
         title: 'Form Elements',
-        routing: '/default-layout/form-elements'
+        routing: '/default-layout/add-client'
       },
       {
         title: 'Form Layout',

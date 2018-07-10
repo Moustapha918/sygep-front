@@ -11,6 +11,7 @@ import 'rxjs/add/observable/fromEvent';
 
 import { SharedService } from '../../../layouts/shared-service';
 import {ClientService} from "../../../services/client.service";
+import { Router } from "@angular/router";
 
 const BREADCRUMBS: any[] = [
   {
@@ -49,7 +50,7 @@ export class PageFilteringTableComponent implements OnInit {
 
   @ViewChild('filter') filter: ElementRef;
 
-  constructor( private _sharedService: SharedService,private clientService: ClientService ) {
+  constructor( private _sharedService: SharedService,private clientService: ClientService,private  router : Router ) {
     this._sharedService.emitChange(this.pageTitle);
   }
 
@@ -70,6 +71,12 @@ export class PageFilteringTableComponent implements OnInit {
         this.dataSource.filter = this.filter.nativeElement.value;
       });
   }
+
+
+  newClient(){
+    this.router.navigateByUrl("/default-layout/add-client");
+  }
+
 }
 
 export class ExampleDataSource extends DataSource<any> {

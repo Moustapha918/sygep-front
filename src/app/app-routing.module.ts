@@ -8,10 +8,12 @@ import { PageDashboardComponent }       from './pages/dashboards/dashboard-1/das
 
 import { PageSignIn1Component }         from './pages/extra-pages/sign-in-1/sign-in-1.component';
 import { PageFilteringTableComponent }  from './pages/tables/filtering-table/filtering-table.component';
+import {AddClientComponent} from "./pages/add-client/add-client.component";
 
 const defaultRoutes: Routes = [
   { path: 'dashboard', component: PageDashboardComponent },
   { path: 'filtering-table', component: PageFilteringTableComponent },
+  { path: 'add-client', component: AddClientComponent },
 ];
 
 const extraRoutes: Routes = [

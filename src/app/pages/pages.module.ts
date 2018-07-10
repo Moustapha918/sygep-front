@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NiComponentsModule }              from '../ni-components/ni-components.module';
 
 import {
+  MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
@@ -42,6 +43,7 @@ import { AmChartsModule }                  from "@amcharts/amcharts3-angular";
 import { PageDashboardComponent }          from './dashboards/dashboard-1/dashboard.component';
 import { PageSignIn1Component }            from './extra-pages/sign-in-1/sign-in-1.component';
 import {PageFilteringTableComponent} from "./tables/filtering-table/filtering-table.component";
+import {AddClientComponent} from "./add-client/add-client.component";
 
 @NgModule({
   imports: [
@@ -50,7 +52,7 @@ import {PageFilteringTableComponent} from "./tables/filtering-table/filtering-ta
     ReactiveFormsModule,
 
     NiComponentsModule,
-
+    MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -90,11 +92,13 @@ import {PageFilteringTableComponent} from "./tables/filtering-table/filtering-ta
     PageFilteringTableComponent,
     PageDashboardComponent,
     PageSignIn1Component,
+    AddClientComponent
 
   ],
   exports: [
     PageDashboardComponent,
     PageSignIn1Component,
+    AddClientComponent
   ],
   entryComponents: [
 
