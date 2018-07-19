@@ -16,6 +16,15 @@ export const MENU: any = [
       bg: '#FFE082',
       color: 'rgba(0,0,0,.87)'
     }
+  },
+  {
+    title: 'Ajouter Contrat',
+    routing: '/add-contrat',
+    icon: {
+      class: 'fa fa-table',
+      bg: '#FFE082',
+      color: 'rgba(0,0,0,.87)'
+    }
   }
 ];
 

@@ -44,6 +44,8 @@ import { PageDashboardComponent }          from './dashboards/dashboard-1/dashbo
 import { PageSignIn1Component }            from './extra-pages/sign-in-1/sign-in-1.component';
 import {PageFilteringTableComponent} from "./tables/filtering-table/filtering-table.component";
 import {AddClientComponent} from "./add-client/add-client.component";
+import { AddContratComponent } from './add-contrat/add-contrat.component';
+
 
 @NgModule({
   imports: [
@@ -92,13 +94,15 @@ import {AddClientComponent} from "./add-client/add-client.component";
     PageFilteringTableComponent,
     PageDashboardComponent,
     PageSignIn1Component,
-    AddClientComponent
+    AddClientComponent,
+    AddContratComponent
 
   ],
   exports: [
     PageDashboardComponent,
     PageSignIn1Component,
-    AddClientComponent
+    AddClientComponent,
+    AddContratComponent
   ],
   entryComponents: [
 

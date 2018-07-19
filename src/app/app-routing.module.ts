@@ -1,3 +1,4 @@
+import { AddContratComponent } from './pages/add-contrat/add-contrat.component';
 import { NgModule }                     from '@angular/core';
 import { Routes, RouterModule }         from '@angular/router';
 
@@ -14,6 +15,7 @@ const defaultRoutes: Routes = [
   { path: 'dashboard', component: PageDashboardComponent },
   { path: 'filtering-table', component: PageFilteringTableComponent },
   { path: 'add-client', component: AddClientComponent },
+  { path: 'add-contrat', component: AddContratComponent}
 ];
 
 const extraRoutes: Routes = [
