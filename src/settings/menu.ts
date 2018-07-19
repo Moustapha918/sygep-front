@@ -19,7 +19,7 @@ export const MENU: any = [
   },
   {
     title: 'Ajouter Contrat',
-    routing: '/add-contrat',
+    routing: '/default-layout/add-contrat',
     icon: {
       class: 'fa fa-table',
       bg: '#FFE082',
