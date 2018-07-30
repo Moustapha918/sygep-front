@@ -1,3 +1,4 @@
+import { ClientService } from './../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
@@ -18,6 +19,15 @@ const BREADCRUMBS: any[] = [
   }
 ];
 
+export interface Client{
+  id?:number,
+  nom?:string,
+  prenom?:string,
+  tel?:string,
+  email?:string,
+  adresse?:string,
+}
+
 @Component({
   selector: 'app-form-elements',
   templateUrl: './add-client.component.html',
@@ -28,6 +38,7 @@ export class AddClientComponent implements OnInit {
   breadcrumb: any[] = BREADCRUMBS;
   stateCtrl: FormControl;
   filteredStates: any;
+  client:Client={};
 
   states = [
     'Alabama',
@@ -100,7 +111,7 @@ export class AddClientComponent implements OnInit {
     { name: 'Warning', color: 'warn' }
   ];
 
-  constructor( private _sharedService: SharedService ) {
+  constructor( private _sharedService: SharedService, private _clientService: ClientService ) {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
       .startWith(null)
@@ -111,6 +122,11 @@ export class AddClientComponent implements OnInit {
 
   filterStates(val: string) {
     return val ? this.states.filter((s) => new RegExp(val, 'gi').test(s)) : this.states;
+  }
+  onSubmit(form){
+    this._clientService.addClient(this.client).subscribe(x=>{
+      console.log(x);
+    });
   }
 
   ngOnInit() {}

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
-import {Client} from "../pages/tables/filtering-table/filtering-table.component";
+import { Client } from '../pages/add-client/add-client.component';
+
 
 @Injectable()
 export class ClientService {
@@ -15,7 +16,11 @@ export class ClientService {
     return result;
   }
 
+  addClient(client:Client):Observable<any>{
+    return this.http.post("clients/add",client);
+  }
+
   getClients() : Observable<Client[]>{
-  return this.http.get<Client[]>( "client/all" );
+  return this.http.get<Client[]>( "clients/all" );
   }
 }

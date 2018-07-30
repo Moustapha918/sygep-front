@@ -1,26 +1,46 @@
 <!--<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>-->
+<form  id=formId (submit)="onSubmit(refForm)" #refForm="ngForm">
 
 <ni-card title="Ajouter un client">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <mat-form-field class="md-icon-left">
         <mat-icon matPrefix>perm_identity</mat-icon>
-        <input matInput placeholder="Nom" value="">
+        <input matInput placeholder="Nom" value="" [(ngModel)]="client.nom" name="nom">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="md-icon-left">
+        <mat-icon matPrefix>people_outline</mat-icon>
+        <input matInput placeholder="Prenom" value="" [(ngModel)]="client.prenom" name="prenom" >
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="md-icon-left">
+        <mat-icon matPrefix>people_outline</mat-icon>
+        <input matInput placeholder="Telephone" value="" [(ngModel)]="client.tel" name="tel">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <mat-form-field class="md-icon-left">
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput placeholder="Adresse" value="" [(ngModel)]="client.adresse" name="adresse">
       </mat-form-field>
     </div>
     <div class="col-md-6">
       <mat-form-field class="md-icon-left">
         <mat-icon matPrefix>people_outline</mat-icon>
-        <input matInput placeholder="Prenom" value="">
+        <input matInput placeholder="Email" value="" name="email" [(ngModel)]="client.email">
       </mat-form-field>
+    </div>
+    <div class="col-md-1">
+      <button mat-fab class="check-btn" type="submit" color="primary"><mat-icon>check</mat-icon></button>
     </div>
   </div>
 
-  <mat-form-field>
-    <textarea matInput placeholder="Numero de Télephone"></textarea>
-  </mat-form-field>
-
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-md-4">
       <mat-form-field class="mb-0">
         <input matInput placeholder="Nationalité" [matAutocomplete]="auto" [formControl]="stateCtrl">
@@ -44,10 +64,11 @@
       </mat-form-field>
     </div>
 
-  </div>
+  </div> -->
 
 
 </ni-card>
+</form>
 <!--
 
 <ni-card title="Material checkboxes">
