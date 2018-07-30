@@ -1,61 +1,64 @@
 <ni-card title="Ajouter un Contrat">
-  <div class="row">
-    <div class="col-md-6">
-      <mat-form-field>
-        <mat-select placeholder="Client">
-          <mat-option *ngFor="let client of clients" [value]="client.value">
-            {{ client.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field>
-        <mat-select placeholder="Bien Immobilier">
-          <mat-option *ngFor="let bien of bienImmobiliers" [value]="bien.value">
-            {{ bien.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <mat-form-field>
-        <mat-select placeholder="Type de contrat">
-          <mat-option *ngFor="let contrat of contrats" [value]="contrat.value">
-            {{ contrat.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field>
-        <mat-select placeholder="Etats">
-          <mat-option *ngFor="let etat of etats" [value]="etat.value">
-            {{ etat.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <mat-form-field class="md-icon-left">
-        <mat-icon matPrefix>perm_identity</mat-icon>
-        <input matInput placeholder="Num Contrat" value="">
-      </mat-form-field>
-    </div>
-    <div class="col-md-5">
-      <mat-form-field class="md-icon-left">
-        <mat-icon matPrefix>people_outline</mat-icon>
-        <input matInput placeholder="Duree du contrat" value="">
-      </mat-form-field>
-    </div>
-    <div class="col-md-1">
-      <button mat-fab class="check-btn" (click)="saveClick()" color="primary"><mat-icon>check</mat-icon></button>
-    </div>
-  </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
+      <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-select ngModel name="client" placeholder="Client">
+                <mat-option *ngFor="let client of clients" [value]="client.value">
+                  {{ client.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-select ngModel name="bien" placeholder="Bien Immobilier">
+                <mat-option *ngFor="let bien of bienImmobiliers" [value]="bien.value">
+                  {{ bien.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+      </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-select ngModel name="contrat" placeholder="Type de contrat">
+                <mat-option *ngFor="let contrat of contrats" [value]="contrat.value">
+                  {{ contrat.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-select placeholder="Etats" ngModel name="etat">
+                <mat-option *ngFor="let etat of etats" [value]="etat.value">
+                  {{ etat.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="md-icon-left">
+              <mat-icon matPrefix>perm_identity</mat-icon>
+              <input ngModel name="numContrat" matInput placeholder="Num Contrat" value="">
+            </mat-form-field>
+          </div>
+          <div class="col-md-5">
+            <mat-form-field class="md-icon-left">
+              <mat-icon matPrefix>people_outline</mat-icon>
+              <input ngModel name="duree" matInput placeholder="Duree du contrat" value="">
+            </mat-form-field>
+          </div>
+          <div class="col-md-1">
+            <button mat-fab class="check-btn" type="submit" color="primary"><mat-icon>check</mat-icon></button>
+          </div>
+        </div>
+  </form>
+  
 
 
 

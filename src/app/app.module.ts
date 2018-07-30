@@ -18,6 +18,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule, HttpHandler} from "@ang
 import {InterceptorService} from "./services/interceptor.service";
 import {AuthService} from "./services/auth.service";
 import {ClientService} from "./services/client.service";
+import { ContratService } from './services/contrat.service';
 
 @NgModule({
   declarations : [
@@ -42,6 +43,7 @@ import {ClientService} from "./services/client.service";
   providers : [TokenStorageService,HttpClient,
     AuthService,
     ClientService,
+    ContratService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
